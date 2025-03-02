@@ -1,197 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-31SMFPD5P0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-31SMFPD5P0');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicious Cakes</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #4E2A1E;
-            background: #F3E5AB;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(to bottom, #4E2A1E, #D79E66);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 1.2em;
-            position: relative;
-        }
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            font-weight: bold;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Chocolate Drip Effect */
-        .drip {
-            background: url('https://www.pngall.com/wp-content/uploads/5/Chocolate-Drip-PNG.png') no-repeat center;
-            background-size: cover;
-            height: 50px;
-            width: 100%;
-            position: absolute;
-            bottom: -10px;
-        }
-
-        /* Navigation */
-        nav {
-            background: #D79E66;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: #FFF0E6;
-        }
-
-        /* Gallery */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            padding: 20px;
-        }
-        .gallery img {
-            width: 260px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Wavy Divider */
-        .wave {
-            position: relative;
-            margin-top: -20px;
-            width: 100%;
-            height: 60px;
-            background: url('https://www.svgrepo.com/show/216612/wave-line.svg') repeat-x;
-            background-size: cover;
-        }
-
-        /* Fun Cards */
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        /* Subscription */
-        .subscription input {
-            padding: 12px;
-            font-size: 1.1em;
-            border-radius: 10px;
-            border: 1px solid #D79E66;
-            width: 80%;
-            max-width: 400px;
-            margin: 10px;
-            text-align: center;
-        }
-        .subscription button {
-            padding: 12px 20px;
-            font-size: 1.1em;
-            border-radius: 10px;
-            border: none;
-            background: #4E2A1E;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .subscription button:hover {
-            background: #D79E66;
-        }
-
-        /* Footer */
-        footer {
-            background: #4E2A1E;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
+    <title>Back Zauber - Magic in Every Bite</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital@1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
+    <script>
+    // Smooth Scrolling for Navigation Links
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
 <body>
 
+    <!-- Navigation Bar -->
     <header>
-        <h1>Delicious Cakes</h1>
-        <p>Your Sweetest Memories, Baked to Perfection!</p>
-        <div class="drip"></div>
+        <div class="logo">Back Zauber</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#order" class="btn">Order Now</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#gallery">Gallery</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#subscription">Subscribe</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Magic in Every Bite</h1>
+            <p>Handcrafted Cakes with Love</p>
+            <a href="#menu" class="btn">View Menu</a>
+        </div>
+    </section>
 
-    <div class="container">
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <h2>Our Special Cakes</h2>
+        <div class="menu-items">
+            <div class="item">
+                <img src="cake1.jpg" alt="Cake 1">
+                <h3>Chocolate Delight</h3>
+                <p>Rich and creamy chocolate perfection.</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+            <div class="item">
+                <img src="cake2.jpg" alt="Cake 2">
+                <h3>Golden Caramel</h3>
+                <p>Sweet caramel drizzled with gold flakes.</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+            <div class="item">
+                <img src="cake3.jpg" alt="Cake 3">
+                <h3>Velvet Dream</h3>
+                <p>Soft red velvet with creamy frosting.</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+        </div>
+    </section>
 
-        <section id="gallery" class="gallery">
-            <img src="https://mrbrownbakery.com/image/images/YaIsXaHm4bBIggrEQ9701udrvjtJnBzfkryGH9Dr.jpeg" alt="Chocolate Cake">
-            <img src="https://whipped.in/cdn/shop/products/DesignerCake_1000x.jpg" alt="Vanilla Cake">
-            <img src="https://d3cif2hu95s88v.cloudfront.net/live-site-2016/product-image/Cakes/NewCakes/new-designer-cakes-15-600x600.jpg" alt="Red Velvet Cake">
-        </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Back Zauber is a magical bakery where flavors meet elegance. We specialize in handcrafted cakes that bring joy to every celebration.</p>
+    </section>
 
-        <div class="wave"></div>
-
-        <section id="testimonials" class="card">
-            <h2>Customer Love</h2>
-            <p>"Best cakes ever! Stunning designs & delicious flavors!" - Emily R.</p>
-        </section>
-
-        <section id="subscription" class="card subscription">
-            <h2>Stay Updated!</h2>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Delicious Cakes. All Rights Reserved.</p>
-    </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: hello@backzauber.com</p>
+        <p>Phone: +123 456 7890</p>
+        <a href="https://wa.me/1234567890" class="btn">WhatsApp Order</a>
+    </section>
 
 </body>
 </html>
