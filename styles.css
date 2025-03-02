@@ -20,7 +20,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 100;
-    transition: background 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Sticky Navbar Effect */
@@ -55,6 +55,7 @@ nav ul li a {
 /* Hover Effect on Navbar Links */
 nav ul li a:hover {
     color: #D4AF37;
+    text-decoration: underline;
 }
 
 /* Hero Section */
@@ -65,14 +66,31 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+}
+
+/* Hero Overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Text */
+.hero-text {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-text h1 {
     font-size: 60px;
     font-family: 'Cinzel', serif;
     color: #D4AF37;
-    animation: slideIn 1.5s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero-text p {
@@ -96,6 +114,7 @@ nav ul li a:hover {
 .btn:hover {
     background: #B89624;
     transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5);
 }
 
 /* Menu Section */
@@ -177,17 +196,6 @@ nav ul li a:hover {
         opacity: 0;
     }
     to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
         opacity: 1;
     }
 }
