@@ -222,3 +222,31 @@ nav ul li a:hover {
         width: 90%;
     }
 }
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the hamburger menu */
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    nav ul {
+        display: none; /* Hide menu initially */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(26, 14, 10, 0.95);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul.active {
+        display: flex; /* Show when active */
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+}
