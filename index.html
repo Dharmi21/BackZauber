@@ -8,12 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital@1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
-    <script>
-           document.querySelector(".menu-toggle").addEventListener("click", function () {
-            document.querySelector(".nav-links").classList.toggle("active");
-        });
-    // Smooth Scrolling for Navigation Links
-    </script>
+   
 <!--             <script>
     document.querySelectorAll('nav ul li a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -91,6 +86,12 @@
         <p>Phone: +123 456 7890</p>
         <a href="https://wa.me/1234567890" class="btn">WhatsApp Order</a>
     </section>
-
+ <script>
+           document.querySelector(".menu-toggle").addEventListener("click", function () {
+        document.querySelector(".nav-links").classList.toggle("active");
+        document.querySelector("nav").style.display = document.querySelector(".nav-links").classList.contains("active") ? "block" : "none";
+    });
+    // Smooth Scrolling for Navigation Links
+    </script>
 </body>
 </html>
