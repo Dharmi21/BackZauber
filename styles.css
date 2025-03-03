@@ -1,0 +1,256 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1A0E0A, #4A3B32);
+    color: #F5E1C8;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+/* Default Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #D4AF37;
+    z-index: 200;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        z-index: 101; /* Ensures it stays on top */
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 14, 10, 0.95);
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px; /* Push menu down so toggle is visible */
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+
+/* Navigation Bar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(26, 14, 10, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sticky Navbar Effect */
+header.scrolled {
+    background: #1A0E0A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    color: #D4AF37;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F5E1C8;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect on Navbar Links */
+nav ul li a:hover {
+    color: #D4AF37;
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background: url('./image/cake_bg.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Hero Overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Text */
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    font-family: 'Cinzel', serif;
+    color: #D4AF37;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-text p {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn {
+    background: #D4AF37;
+    color: #1A0E0A;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background: #B89624;
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Menu Section */
+.menu {
+    padding: 80px 20px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Menu Item Cards */
+.item {
+    background: #3E2C26;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect on Menu Items */
+.item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* About & Contact Sections */
+.about, .contact {
+    padding: 60px 20px;
+    background: #2C1A14;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 90%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
