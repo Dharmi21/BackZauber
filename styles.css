@@ -20,13 +20,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Sticky Navbar Effect */
-header.scrolled {
-    background: #1A0E0A;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out;
 }
 
 .logo {
@@ -36,6 +30,7 @@ header.scrolled {
     color: #D4AF37;
 }
 
+/* Navbar Menu */
 nav ul {
     list-style: none;
     display: flex;
@@ -52,16 +47,22 @@ nav ul li a {
     transition: 0.3s ease-in-out;
 }
 
-/* Hover Effect on Navbar Links */
 nav ul li a:hover {
     color: #D4AF37;
-    text-decoration: underline;
+}
+
+/* Mobile Navbar (Hidden by Default) */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: #D4AF37;
+    cursor: pointer;
 }
 
 /* Hero Section */
 .hero {
     background: url('./image/cake_bg.jpg') center/cover no-repeat;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,7 +70,6 @@ nav ul li a:hover {
     position: relative;
 }
 
-/* Hero Overlay */
 .hero::before {
     content: "";
     position: absolute;
@@ -80,17 +80,16 @@ nav ul li a:hover {
     background: rgba(0, 0, 0, 0.3);
 }
 
-/* Hero Text */
 .hero-text {
     position: relative;
     z-index: 1;
+    max-width: 80%;
 }
 
 .hero-text h1 {
     font-size: 60px;
     font-family: 'Cinzel', serif;
     color: #D4AF37;
-    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero-text p {
@@ -110,7 +109,6 @@ nav ul li a:hover {
     transition: all 0.3s ease-in-out;
 }
 
-/* Button Hover Effect */
 .btn:hover {
     background: #B89624;
     transform: scale(1.1);
@@ -123,10 +121,10 @@ nav ul li a:hover {
 }
 
 .menu-items {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    flex-wrap: wrap;
+    justify-items: center;
 }
 
 /* Menu Item Cards */
@@ -139,7 +137,6 @@ nav ul li a:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover Effect on Menu Items */
 .item:hover {
     transform: scale(1.05);
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.2);
@@ -156,16 +153,49 @@ nav ul li a:hover {
     background: #2C1A14;
 }
 
-/* Mobile Responsiveness */
+/* 🌍 RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .hero-text h1 {
+        font-size: 50px;
+    }
+
+    .hero-text p {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Mobile Screens (768px and below) */
 @media (max-width: 768px) {
+    /* Fix Navbar */
     header {
         flex-direction: column;
-        padding: 15px;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     nav ul {
+        display: none;
         flex-direction: column;
-        padding: 10px;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(26, 14, 10, 0.95);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
@@ -177,25 +207,18 @@ nav ul li a:hover {
     }
 
     .hero-text h1 {
-        font-size: 40px;
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
     }
 
     .menu-items {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
     }
 
     .item {
         width: 90%;
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
     }
 }
