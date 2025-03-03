@@ -25,7 +25,7 @@
     <!-- Navigation Bar -->
     <header>
         <div class="logo">Back Zauber</div>
-        <div class="menu-toggle">&#9776;</div>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Hamburger Icon -->
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -86,6 +86,13 @@
         <p>Phone: +123 456 7890</p>
         <a href="https://wa.me/1234567890" class="btn">WhatsApp Order</a>
     </section>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+    
 <!--  <script>
            document.querySelector(".menu-toggle").addEventListener("click", function () {
         document.querySelector(".nav-links").classList.toggle("active");
