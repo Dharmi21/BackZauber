@@ -8,6 +8,61 @@ body {
     text-align: center;
     scroll-behavior: smooth;
 }
+/* Default Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #D4AF37;
+    z-index: 200;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        z-index: 101; /* Ensures it stays on top */
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 14, 10, 0.95);
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px; /* Push menu down so toggle is visible */
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
 
 /* Navigation Bar */
 header {
