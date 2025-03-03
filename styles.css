@@ -1,7 +1,11 @@
-/* Global Styles */
-body {
+/* 🌍 Global Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #1A0E0A, #4A3B32);
     color: #F5E1C8;
@@ -9,7 +13,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Navigation Bar */
+/* 🟡 Navigation Bar */
 header {
     display: flex;
     justify-content: space-between;
@@ -20,9 +24,9 @@ header {
     width: 100%;
     top: 0;
     z-index: 100;
-    transition: background 0.3s ease-in-out;
 }
 
+/* 🟡 Logo */
 .logo {
     font-size: 28px;
     font-weight: 700;
@@ -30,38 +34,89 @@ header {
     color: #D4AF37;
 }
 
-/* Navbar Menu */
-nav ul {
+/* 🟡 Navbar Links */
+.nav-links {
     list-style: none;
     display: flex;
 }
 
-nav ul li {
+.nav-links li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.nav-links li a {
     text-decoration: none;
     color: #F5E1C8;
     font-size: 18px;
     transition: 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
+/* Hover Effect */
+.nav-links li a:hover {
     color: #D4AF37;
+    text-decoration: underline;
 }
 
-/* Mobile Navbar (Hidden by Default) */
+/* 🟡 Button in Navbar */
+.btn {
+    background: #D4AF37;
+    color: #1A0E0A;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover */
+.btn:hover {
+    background: #B89624;
+    transform: scale(1.1);
+}
+
+/* 🟡 Hamburger Menu (Hidden by Default) */
 .menu-toggle {
     display: none;
-    font-size: 28px;
+    font-size: 32px;
     color: #D4AF37;
     cursor: pointer;
 }
 
-/* Hero Section */
+/* 🟡 Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: rgba(26, 14, 10, 0.95);
+        display: none;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
+
+/* 🟡 Hero Section */
 .hero {
-    background: url('./image/cake_bg.jpg') center/cover no-repeat;
+    background: url('cake-banner.jpg') center/cover no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -70,6 +125,7 @@ nav ul li a:hover {
     position: relative;
 }
 
+/* Hero Overlay */
 .hero::before {
     content: "";
     position: absolute;
@@ -97,25 +153,7 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* Button Styling */
-.btn {
-    background: #D4AF37;
-    color: #1A0E0A;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn:hover {
-    background: #B89624;
-    transform: scale(1.1);
-    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5);
-}
-
-/* Menu Section */
+/* 🟡 Menu Section */
 .menu {
     padding: 80px 20px;
 }
@@ -127,7 +165,6 @@ nav ul li a:hover {
     justify-items: center;
 }
 
-/* Menu Item Cards */
 .item {
     background: #3E2C26;
     padding: 20px;
@@ -137,6 +174,7 @@ nav ul li a:hover {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Hover Effect */
 .item:hover {
     transform: scale(1.05);
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.2);
@@ -147,13 +185,13 @@ nav ul li a:hover {
     border-radius: 10px;
 }
 
-/* About & Contact Sections */
+/* 🟡 About & Contact Sections */
 .about, .contact {
     padding: 60px 20px;
     background: #2C1A14;
 }
 
-/* 🌍 RESPONSIVE DESIGN */
+/* 🌍 Responsive Design */
 @media (max-width: 1024px) {
     .hero-text h1 {
         font-size: 50px;
@@ -169,39 +207,7 @@ nav ul li a:hover {
     }
 }
 
-/* Mobile Screens (768px and below) */
 @media (max-width: 768px) {
-    /* Fix Navbar */
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(26, 14, 10, 0.95);
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
     .hero {
         height: 80vh;
     }
@@ -220,33 +226,5 @@ nav ul li a:hover {
 
     .item {
         width: 90%;
-    }
-}
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Show the hamburger menu */
-        position: absolute;
-        right: 20px;
-        top: 20px;
-    }
-
-    nav ul {
-        display: none; /* Hide menu initially */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(26, 14, 10, 0.95);
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    nav ul.active {
-        display: flex; /* Show when active */
-    }
-
-    nav ul li {
-        margin: 15px 0;
     }
 }
