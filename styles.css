@@ -18,17 +18,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    background: rgba(26, 14, 10, 0.9);
+    padding: 15px 20px;
+    background: rgba(26, 14, 10, 0.95);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* 🟡 Logo */
 .logo {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
     font-family: 'Cinzel', serif;
     color: #D4AF37;
@@ -51,7 +52,6 @@ header {
     transition: 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 .nav-links li a:hover {
     color: #D4AF37;
     text-decoration: underline;
@@ -74,18 +74,21 @@ header {
     transform: scale(1.1);
 }
 
-/* 🟡 Hamburger Menu (Hidden by Default) */
+/* 🟡 Hamburger Menu */
 .menu-toggle {
     display: none;
-    font-size: 32px;
+    font-size: 28px;
     color: #D4AF37;
     cursor: pointer;
 }
 
-/* 🟡 Mobile Navigation Styles */
+/* 🟡 Mobile Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
     }
 
     nav {
@@ -102,17 +105,18 @@ header {
         flex-direction: column;
         width: 100%;
         display: none;
+        padding: 10px 0;
     }
 
     .nav-links.active {
         display: flex;
-        padding: 10px 0;
     }
 
     .nav-links li {
         margin: 15px 0;
     }
 }
+
 
 /* 🟡 Hero Section */
 .hero {
@@ -133,26 +137,48 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
 }
 
+/* Hero Text */
 .hero-text {
     position: relative;
     z-index: 1;
-    max-width: 80%;
+    max-width: 90%;
+    padding: 20px;
 }
 
+/* Adjust hero text for readability */
 .hero-text h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-family: 'Cinzel', serif;
     color: #D4AF37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-text p {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
+/* Fix button for better contrast */
+.hero-text .btn {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
+}
+
+/* 🟡 Mobile Fixes */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+}
 /* 🟡 Menu Section */
 .menu {
     padding: 80px 20px;
