@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital@1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-31SMFPD5P0');
-</script>
-
 </head>
    
             <script>
@@ -40,8 +32,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact"></a></li>
-                <li><a href="#contact"></a></li>
+                <!-- <li><a href="#contact"></a></li>
+                <li><a href="#contact"></a></li> -->
                
             </ul>
         </nav>
@@ -82,18 +74,56 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <!-- <section id="about" class="about">
         <h2>About Us</h2>
         <p>Back Zauber is a magical bakery where flavors meet elegance. We specialize in handcrafted cakes that bring joy to every celebration.</p>
-    </section>
+    </section> -->
+
+    <!-- About Section -->
+<section id="about" class="about">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>Welcome to <strong>Back Zauber</strong>, a magical bakery where flavors meet elegance.  
+               We specialize in handcrafted cakes that bring joy to every celebration.</p>
+            <p>From rich chocolates to golden caramel, every bite is a piece of magic.  
+               Our ingredients are fresh, our designs are elegant, and our flavors are unforgettable.</p>
+            <a href="#menu" class="btn">Explore Our Cakes</a>
+        </div>
+        
+    </div>
+    <div class="about-image">
+        <img src="image/certificate.jpg" alt="Back Zauber Bakery">
+    </div>
+</section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <p>Email: hello@backzauber.com</p>
         <p>Phone: +123 456 7890</p>
         <a href="https://wa.me/1234567890" class="btn">WhatsApp Order</a>
-    </section>
+    </section> -->
+    <!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:backzauberdeutschland@gmail.com" class="contact-link"> backzauberdeutschland@gmail.com </a>   </p>
+    <p>Phone: <a href="https://wa.me/+4915560595122" class="contact-link" target="_blank">+4915560595122</a>,<a href="https://wa.me/+4915734121989" class="contact-link" target="_blank">+4915734121989</a> </p>
+    <!-- <a href="https://wa.me/+4915560595122" class="contact-link" target="_blank">WhatsApp</a> -->
+    
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h3>Send us a message</h3>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
     <script>
         function toggleMenu() {
             const nav = document.querySelector("nav");
@@ -105,6 +135,14 @@
             nav.classList.remove("active");
         });
     });
+    document.addEventListener("click", function (event) {
+        const nav = document.querySelector("nav");
+        const menuToggle = document.querySelector(".menu-toggle");
+
+        if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+            nav.classList.remove("active");
+        }
+    });
     </script>
     
 <!--  <script>
@@ -114,5 +152,48 @@
     });
     // Smooth Scrolling for Navigation Links
     </script> -->
+    <!-- <script>
+        // Contact Form Submission Alert
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you for your message! We'll get back to you soon.");
+            document.getElementById("contactForm").reset();
+        });
+    </script> -->
+<!-- Include EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+    (function(){
+        emailjs.init("MKkIGyI40xSlLd1We"); // Replace with your EmailJS Public Key
+    })();
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Collect form data
+        var userName = document.getElementById("name").value;
+        var userEmail = document.getElementById("email").value;
+        var userMessage = document.getElementById("message").value;
+
+        // EmailJS parameters
+        var templateParams = {
+            from_name: userName,
+            from_email: userEmail,
+            message: userMessage
+        };
+
+        emailjs.send("service_evcym4o", "template_g7gid9e", templateParams)
+        .then(function(response) {
+            alert("Message sent successfully!");
+            document.getElementById("contactForm").reset(); // Clear form
+        }, function(error) {
+            alert("Failed to send message. Please try again.");
+        });
+    });
+</script>
+
+
+    
 </body>
 </html>

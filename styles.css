@@ -12,6 +12,8 @@ body {
 nav {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;  /* Ensures items wrap if needed */
+    width: 400px;
 }
 
 nav ul {
@@ -46,7 +48,7 @@ nav ul {
         display: none;
         flex-direction: column;
         text-align: center;
-        padding-top: 50px; /* Push menu down so toggle is visible */
+        padding-top: 0; /* Push menu down so toggle is visible */
     }
 
     nav.active {
@@ -56,10 +58,13 @@ nav ul {
     nav ul {
         flex-direction: column;
         width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     nav ul li {
-        margin: 10px 0;
+        
+        margin: 5px 0;
     }
 }
 
@@ -69,13 +74,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
+    padding: 15px 20px;
     background: rgba(26, 14, 10, 0.9);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* flex-wrap: wrap;  */
 }
 
 /* Sticky Navbar Effect */
@@ -89,11 +95,16 @@ header.scrolled {
     font-weight: 700;
     font-family: 'Cinzel', serif;
     color: #D4AF37;
+    white-space: nowrap;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensures items wrap if needed */
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -112,11 +123,33 @@ nav ul li a:hover {
     color: #D4AF37;
     text-decoration: underline;
 }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;  /* Allows items to move to next line if needed */
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #F5E1C8;
+    font-size: 16px;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #D4AF37;
+}
 
 /* Hero Section */
 .hero {
     background: url('./image/cake_bg.jpg') center/cover no-repeat;
-    height: 90vh;
+    height: 170vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,16 +239,112 @@ nav ul li a:hover {
 }
 
 /* About & Contact Sections */
-.about, .contact {
-    padding: 60px 20px;
+/* 🟡 About Us Section */
+.about {
+    padding: 80px 20px;
     background: #2C1A14;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
 }
+
+/* 🟡 About Us Container */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 🟡 About Us Text */
+.about-text {
+    flex: 1;
+    padding: 20px;
+    color: #F5E1C8;
+    text-align: left;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* 🟡 About Us Image */
+.about-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* ✨ Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 🟡 Mobile Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about-image img {
+        max-width: 90%;
+    }
+}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         padding: 15px;
+    }
+
+    .logo{
+        font-size: 28px;
+        font-weight: 700;
+        margin-right: auto;
+        font-family: 'Cinzel', serif;
+        color: #D4AF37;
+        white-space: nowrap;
     }
 
     nav ul {
@@ -226,6 +355,7 @@ nav ul li a:hover {
     nav ul li {
         margin: 10px 0;
     }
+    
 
     .hero {
         height: 80vh;
@@ -254,3 +384,118 @@ nav ul li a:hover {
         opacity: 1;
     }
 }
+/* ✨ Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✨ Slide-Up Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🟡 Apply Animations to Sections */
+.hero-text {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.menu-items .item {
+    animation: slideUp 1.5s ease-in-out;
+}
+
+/* ✨ Button Hover Effect */
+.btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* ✨ Contact Form Styling */
+.contact-form {
+    background: #3E2C26;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 350px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    
+}
+.contact-form input:hover, .contact-form textarea:hover{
+    
+        transform: scale(1.05);
+        box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.2);
+    
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background: #D4AF37;
+    color: #1A0E0A;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background: #B89624;
+    transform: scale(1.05);
+}
+
+/* ✨ Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 40px;
+    }
+    
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 90%;
+    }
+}
+/* ✨ Clickable Contact Links */
+.contact-link {
+    color: #F5E1C8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.contact-link:hover {
+    color: #F5E1C8;
+    text-decoration: underline;
+}
+
